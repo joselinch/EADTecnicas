@@ -17,6 +17,7 @@ public class App {
 	static Fila atend = new Fila();
 
 	// sao iniciadas as filas de prioridades diferentes, fila* onde * é a prioridade em questao
+
 	static Fila fila1 = new Fila();
 	static Fila fila2 = new Fila();
 	static Fila fila3 = new Fila();
@@ -27,7 +28,7 @@ public class App {
 	// main, vai executar toda a aplicacao
 public static void main(String[] args) {
 		int numero = -1;
-		Scanner teclado = new Scanner(System.in);
+		Scanner Digitar= new Scanner(System.in);
 		try{ 
 			while (numero<1 || numero>8) {
                     //deixa o código rodando enquanto números entre 1 e 8 forem digitados
@@ -95,7 +96,7 @@ public static void main(String[] args) {
 		// abaixo está  o mesmo código do try, que é rodado novamente em caso de exceção
                 }catch(Exception e){
                    numero = -1;
-		   teclado = new Scanner(System.in);
+		   Digitar= new Scanner(System.in);
                     System.out.println("Número inserido inválido, digite novamente.");
                     while (numero != 8 ){
                     System.out.println("\t ---Informe qual função deseja acessar---"
@@ -154,7 +155,7 @@ public static void menuRelatorios() {
 			// variavel iniciada anteriormente para evitar problemas
 			int numero = 0;
 			// capta a entrada do teclado
-			Scanner teclado = new Scanner(System.in);
+			Scanner Digitar= new Scanner(System.in);
 			while (numero<1 || numero>3) {
 			System.out.println("Digite o número correspondente a opção desejada"
 					+ "\n1 - Tempo médio de espera para atendimento"
@@ -182,7 +183,7 @@ public static void menuRelatorios() {
 	// metodo que 
 public static Paciente cadastraPaciente() {
 		System.out.println("-- CADASTRO DE PACIENTE -- ");
-		Scanner teclado = new Scanner(System.in);
+		Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite o nome");
 		String nome = teclado.nextLine();
 		System.out.println("Digite o CPF");
@@ -195,7 +196,7 @@ public static Paciente cadastraPaciente() {
 	}
 	
 public static Paciente consultaCadastroPaciente() {
-		Scanner teclado = new Scanner(System.in);
+		Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite o CPF que deve ser buscado");
 		String cpf = teclado.nextLine();
 		Paciente cadastrado = listaCadastro.searchByID(cpf);
@@ -229,7 +230,7 @@ public static void chamaTriagem(Atendimento a) {
 		System.out.println("Será feita a triagem do paciente " + nome);
 		Scanner leitura = new Scanner(System.in);
 		System.out.println("Está entubado, apnéico, sem pulso ou sem reação?");
-		// simounao é um metodo que o nome não é nada amigável, não indica a real funcionalidade: capta a entrada do teclado se é sim ou nao
+		// simounao é um metodo que o nome não é nada amigável, não indica a real funcionalidade: capta a entrada do Digitarse é sim ou nao
 		if(simounao()) {
 			a.setPrioridade(1);
 			fila1.enqueue(a);
@@ -290,8 +291,8 @@ public static void chamaTriagem(Atendimento a) {
 				 
 			 }
 			}
-		System.out.println("A triagem detectou que o paciente possui prioridade: " + a.getPrioridade());
-	}//aqui ocorre a detecção do grua de prioridade do paciente, ocorrendo a coleta dos dados do mesmo, observando o risco e inserindo o mesmo na sua devida fila
+		   System.out.println("A triagem detectou que o paciente possui prioridade: " + a.getPrioridade());
+	}    //aqui ocorre a detecção do grua de prioridade do paciente, ocorrendo a coleta dos dados do mesmo, observando o risco e inserindo o mesmo na sua devida fila
 	
 	
 public static Atendimento chamaConsulta() {
@@ -316,7 +317,7 @@ public static void realizaConsulta(Atendimento a) {
 
 		try{System.out.println("-- CONSULTA DE PACIENTE -- ");
 		System.out.println("Consulta do paciente " + a.getPessoa().getNome());
-		Scanner teclado = new Scanner(System.in);
+		Scanner Digitar= new Scanner(System.in);
 		System.out.println("Informe o horário do início da consulta:");
 		int hora = registraHora();
 		int minuto = registraMinuto();
@@ -326,10 +327,10 @@ public static void realizaConsulta(Atendimento a) {
 		espera+=tempo;
 		numAtend++;}
 		catch (Exception e){
-        System.out.println("Entrada incorreta, por favor, insira novamente: ");
-        System.out.println("-- CONSULTA DE PACIENTE -- ");
+                System.out.println("Entrada incorreta, por favor, insira novamente: ");
+                System.out.println("-- CONSULTA DE PACIENTE -- ");
 		System.out.println("Consulta do paciente " + a.getPessoa().getNome());
-		Scanner teclado = new Scanner(System.in);
+		Scanner Digitar= new Scanner(System.in);
 		System.out.println("Informe o horário do início da consulta:");
 		int hora = registraHora();
 		int minuto = registraMinuto();
@@ -348,14 +349,14 @@ public static void realizaConsulta(Atendimento a) {
 		}
 		
 		try{
-                    Scanner teclado = new Scanner(System.in);
+                    Scanner Digitar= new Scanner(System.in);
                     System.out.println("Digite o parecer:");
-		String parecer = teclado.nextLine();
-		a.setParecer(parecer);
-		System.out.println("Consulta encerrada");}catch(Exception e){
+		    String parecer = teclado.nextLine();
+		    a.setParecer(parecer);
+		    System.out.println("Consulta encerrada");}catch(Exception e){
                     System.out.println("Entrada incorreta, digite novamente: ");
                     System.out.println("Digite o parecer:");
-                 Scanner teclado = new Scanner(System.in);
+                 Scanner Digitar= new Scanner(System.in);
 		String parecer = teclado.nextLine();
 		a.setParecer(parecer);
 		System.out.println("Consulta encerrada");
@@ -368,7 +369,7 @@ public static void realizaConsulta(Atendimento a) {
         // de consultas encerradas
 public static void altaPaciente() {
 		System.out.println("\t LIBERAÇÃO ");
-		Scanner teclado = new Scanner(System.in);
+		Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite o CPF do paciente");
 		String cpf1 = teclado.nextLine();
 		Atendimento alta = listaPacientesProntos.searchCpf(cpf1);
@@ -389,12 +390,12 @@ public static void altaPaciente() {
 	}
 	
 public static double verificaTemperatura(Atendimento a1) {
-		try{Scanner teclado = new Scanner(System.in);
+		try{Scanner Digitar= new Scanner(System.in);
 		System.out.println("Informe a temperatura do paciente em graus: ");
 		double temperatura = teclado.nextDouble();
 		a1.setTemperatura(temperatura);
 		return temperatura;}catch(Exception e){
-                    Scanner teclado = new Scanner(System.in);
+                    Scanner Digitar = new Scanner(System.in);
 		System.out.println("Informe a temperatura do paciente em graus: ");
 		double temperatura = teclado.nextDouble();
 		a1.setTemperatura(temperatura);
@@ -437,17 +438,17 @@ public static void relatorioAtendimentoFilas() {
 }
             // faz o relatório baseado nas filas, seus tempos e seus tamanhos.
 		static int espera;
-		static int numAtend;
-		static int duracaoAtend;
+		static int numAtendimento;
+		static int duracaoAtendmento;
 		static int liberados;
 		//variaveis que auxiliam nos relatórios
 public static int registraHora() {
-		try{Scanner teclado = new Scanner(System.in);
+		try{Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite a hora:");
 		int hora = teclado.nextInt();
 		return hora;}catch(Exception e){
                     System.out.println("Entrada inválida, por favor tente novamente");
-                    Scanner teclado = new Scanner(System.in);
+                    Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite a hora:");
 		int hora = teclado.nextInt();
 		return hora;
@@ -455,12 +456,12 @@ public static int registraHora() {
 	}
 	//auxilia na coleta da hora
 public static int registraMinuto() {
-		try{Scanner teclado = new Scanner(System.in);
+		try{Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite os minutos:");
 		int minutos = teclado.nextInt();
 		return minutos;}catch(Exception e){
                     System.out.println("Entrada inválida, por favor insira numeros inteiros");
-                    Scanner teclado = new Scanner(System.in);
+                    Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite os minutos:");
 		int minutos = teclado.nextInt();
 		return minutos;
@@ -499,6 +500,7 @@ public static boolean simounao() {
 			}
                 }
         //metodo feito para auxiliar na coleta de dados do tipo booleano, no caso sim ou não, false ou true
+       //ao olha todo codigo acredito que poderia ser criado um mvc para melhor organização.
 }
 }
 
