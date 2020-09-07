@@ -27,7 +27,7 @@ public class App {
 	// main, vai executar toda a aplicacao
 public static void main(String[] args) {
 		int numero = -1;
-		Scanner teclado = new Scanner(System.in);
+		Scanner Digitar= new Scanner(System.in);
 		try{ 
 			while (numero<1 || numero>8) {
                     //deixa o código rodando enquanto números entre 1 e 8 forem digitados
@@ -95,7 +95,7 @@ public static void main(String[] args) {
 		// abaixo está  o mesmo código do try, que é rodado novamente em caso de exceção
                 }catch(Exception e){
                    numero = -1;
-		   teclado = new Scanner(System.in);
+		   Digitar= new Scanner(System.in);
                     System.out.println("Número inserido inválido, digite novamente.");
                     while (numero != 8 ){
                     System.out.println("\t ---Informe qual função deseja acessar---"
@@ -154,7 +154,7 @@ public static void menuRelatorios() {
 			// variavel iniciada anteriormente para evitar problemas
 			int numero = 0;
 			// capta a entrada do teclado
-			Scanner teclado = new Scanner(System.in);
+			Scanner Digitar= new Scanner(System.in);
 			while (numero<1 || numero>3) {
 			System.out.println("Digite o número correspondente a opção desejada"
 					+ "\n1 - Tempo médio de espera para atendimento"
@@ -182,7 +182,7 @@ public static void menuRelatorios() {
 	// metodo que 
 public static Paciente cadastraPaciente() {
 		System.out.println("-- CADASTRO DE PACIENTE -- ");
-		Scanner teclado = new Scanner(System.in);
+		Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite o nome");
 		String nome = teclado.nextLine();
 		System.out.println("Digite o CPF");
@@ -195,7 +195,7 @@ public static Paciente cadastraPaciente() {
 	}
 	
 public static Paciente consultaCadastroPaciente() {
-		Scanner teclado = new Scanner(System.in);
+		Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite o CPF que deve ser buscado");
 		String cpf = teclado.nextLine();
 		Paciente cadastrado = listaCadastro.searchByID(cpf);
@@ -229,7 +229,7 @@ public static void chamaTriagem(Atendimento a) {
 		System.out.println("Será feita a triagem do paciente " + nome);
 		Scanner leitura = new Scanner(System.in);
 		System.out.println("Está entubado, apnéico, sem pulso ou sem reação?");
-		// simounao é um metodo que o nome não é nada amigável, não indica a real funcionalidade: capta a entrada do teclado se é sim ou nao
+		// simounao é um metodo que o nome não é nada amigável, não indica a real funcionalidade: capta a entrada do Digitarse é sim ou nao
 		if(simounao()) {
 			a.setPrioridade(1);
 			fila1.enqueue(a);
@@ -316,7 +316,7 @@ public static void realizaConsulta(Atendimento a) {
 
 		try{System.out.println("-- CONSULTA DE PACIENTE -- ");
 		System.out.println("Consulta do paciente " + a.getPessoa().getNome());
-		Scanner teclado = new Scanner(System.in);
+		Scanner Digitar= new Scanner(System.in);
 		System.out.println("Informe o horário do início da consulta:");
 		int hora = registraHora();
 		int minuto = registraMinuto();
@@ -324,12 +324,12 @@ public static void realizaConsulta(Atendimento a) {
 		a.setmAtend(minuto);
 		int tempo = (hora-a.getHoraChegada())*60 + minuto-a.getMinChegada();
 		espera+=tempo;
-		numAtend++;}
+		numAtendimento++;}
 		catch (Exception e){
         System.out.println("Entrada incorreta, por favor, insira novamente: ");
         System.out.println("-- CONSULTA DE PACIENTE -- ");
 		System.out.println("Consulta do paciente " + a.getPessoa().getNome());
-		Scanner teclado = new Scanner(System.in);
+		Scanner Digitar= new Scanner(System.in);
 		System.out.println("Informe o horário do início da consulta:");
 		int hora = registraHora();
 		int minuto = registraMinuto();
@@ -337,7 +337,7 @@ public static void realizaConsulta(Atendimento a) {
 		a.setmAtend(minuto);
 		int tempo = (hora-a.getHoraChegada())*60 + minuto-a.getMinChegada();
 		espera+=tempo;
-		numAtend++;
+		numAtendimento++;
                     
                 }
 		
@@ -348,14 +348,14 @@ public static void realizaConsulta(Atendimento a) {
 		}
 		
 		try{
-                    Scanner teclado = new Scanner(System.in);
+                    Scanner Digitar= new Scanner(System.in);
                     System.out.println("Digite o parecer:");
 		String parecer = teclado.nextLine();
 		a.setParecer(parecer);
 		System.out.println("Consulta encerrada");}catch(Exception e){
                     System.out.println("Entrada incorreta, digite novamente: ");
                     System.out.println("Digite o parecer:");
-                 Scanner teclado = new Scanner(System.in);
+                 Scanner Digitar= new Scanner(System.in);
 		String parecer = teclado.nextLine();
 		a.setParecer(parecer);
 		System.out.println("Consulta encerrada");
@@ -368,7 +368,7 @@ public static void realizaConsulta(Atendimento a) {
         // de consultas encerradas
 public static void altaPaciente() {
 		System.out.println("\t LIBERAÇÃO ");
-		Scanner teclado = new Scanner(System.in);
+		Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite o CPF do paciente");
 		String cpf1 = teclado.nextLine();
 		Atendimento alta = listaPacientesProntos.searchCpf(cpf1);
@@ -379,7 +379,7 @@ public static void altaPaciente() {
 			alta.setMinSaida(minuto);
 			
 			int tempo = (hora-alta.gethAtend())*60 + minuto-alta.getmAtend();
-			duracaoAtend+=tempo;
+			duracaoAtendimento+=tempo;
 			liberados++;
 			
 			
@@ -389,12 +389,12 @@ public static void altaPaciente() {
 	}
 	
 public static double verificaTemperatura(Atendimento a1) {
-		try{Scanner teclado = new Scanner(System.in);
+		try{Scanner Digitar= new Scanner(System.in);
 		System.out.println("Informe a temperatura do paciente em graus: ");
 		double temperatura = teclado.nextDouble();
 		a1.setTemperatura(temperatura);
 		return temperatura;}catch(Exception e){
-                    Scanner teclado = new Scanner(System.in);
+                    Scanner Digitar= new Scanner(System.in);
 		System.out.println("Informe a temperatura do paciente em graus: ");
 		double temperatura = teclado.nextDouble();
 		a1.setTemperatura(temperatura);
@@ -403,16 +403,16 @@ public static double verificaTemperatura(Atendimento a1) {
 	}
 	// metodo para a coleta da temperatura
 public static void relatorioEsperaAtendimento() {
-		System.out.println("Número de atendimentos ocorridos: " + numAtend);
+		System.out.println("Número de atendimentos ocorridos: " + numAtendimento);
 		System.out.println("Tempo de espera: " + espera/60);
-		System.out.println("Média de tempo de espera: " + (double)espera/numAtend/60);
+		System.out.println("Média de tempo de espera: " + (double)espera/numAtendimento/60);
 	}
         //metodo que faz a disponibilização dos relatórios sobre a espera de atendimento e o número de atendimentos realizados. Como hora e minuto foram coletados de maneira separada
         //é convertida a hora em minutos, feito a media e após convertido novamente para horas.
 public static void relatorioAtendimento() {
 		System.out.println("Número de atendimentos ocorridos com pacientes liberados: " + liberados);
-		System.out.println("Tempo de atendimento " + duracaoAtend/60);
-		System.out.println("Média de tempo de atendimento: " + (double)duracaoAtend/liberados/60);
+		System.out.println("Tempo de atendimento " + duracaoAtendimento/60);
+		System.out.println("Média de tempo de atendimento: " + (double)duracaoAtendimento/liberados/60);
 		//metodo que faz a disponibilização dos relatórios sobre a demora dos atendimentos até a liberação do paciente. Como hora e minuto foram coletados de maneira separada
         //é convertida a hora em minutos, feito a media e após convertido novamente para horas.
 	}
@@ -437,17 +437,17 @@ public static void relatorioAtendimentoFilas() {
 }
             // faz o relatório baseado nas filas, seus tempos e seus tamanhos.
 		static int espera;
-		static int numAtend;
-		static int duracaoAtend;
+		static int numAtendimento;
+		static int duracaoAtendimento;
 		static int liberados;
 		//variaveis que auxiliam nos relatórios
 public static int registraHora() {
-		try{Scanner teclado = new Scanner(System.in);
+		try{Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite a hora:");
 		int hora = teclado.nextInt();
 		return hora;}catch(Exception e){
                     System.out.println("Entrada inválida, por favor tente novamente");
-                    Scanner teclado = new Scanner(System.in);
+                    Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite a hora:");
 		int hora = teclado.nextInt();
 		return hora;
@@ -455,12 +455,12 @@ public static int registraHora() {
 	}
 	//auxilia na coleta da hora
 public static int registraMinuto() {
-		try{Scanner teclado = new Scanner(System.in);
+		try{Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite os minutos:");
 		int minutos = teclado.nextInt();
 		return minutos;}catch(Exception e){
                     System.out.println("Entrada inválida, por favor insira numeros inteiros");
-                    Scanner teclado = new Scanner(System.in);
+                    Scanner Digitar= new Scanner(System.in);
 		System.out.println("Digite os minutos:");
 		int minutos = teclado.nextInt();
 		return minutos;
@@ -499,6 +499,8 @@ public static boolean simounao() {
 			}
                 }
         //metodo feito para auxiliar na coleta de dados do tipo booleano, no caso sim ou não, false ou true
+
+// ao visualizar todo o codigo acredito que ele pode ser fragmentado em funçoes menores até podendo criar um MVC
 }
 }
 
