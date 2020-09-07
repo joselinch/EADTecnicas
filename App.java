@@ -290,7 +290,7 @@ public static void chamaTriagem(Atendimento a) {
 				 
 			 }
 			}
-		System.out.println("A triagem detectou que o paciente possui prioridade: " + a.getPrioridade());
+		   System.out.println("A triagem detectou que o paciente possui prioridade: " + a.getPrioridade());
 	}//aqui ocorre a detecção do grua de prioridade do paciente, ocorrendo a coleta dos dados do mesmo, observando o risco e inserindo o mesmo na sua devida fila
 	
 	
@@ -326,8 +326,8 @@ public static void realizaConsulta(Atendimento a) {
 		espera+=tempo;
 		numAtendimento++;}
 		catch (Exception e){
-        System.out.println("Entrada incorreta, por favor, insira novamente: ");
-        System.out.println("-- CONSULTA DE PACIENTE -- ");
+                System.out.println("Entrada incorreta, por favor, insira novamente: ");
+                System.out.println("-- CONSULTA DE PACIENTE -- ");
 		System.out.println("Consulta do paciente " + a.getPessoa().getNome());
 		Scanner Digitar= new Scanner(System.in);
 		System.out.println("Informe o horário do início da consulta:");
@@ -350,15 +350,15 @@ public static void realizaConsulta(Atendimento a) {
 		try{
                     Scanner Digitar= new Scanner(System.in);
                     System.out.println("Digite o parecer:");
-		String parecer = teclado.nextLine();
-		a.setParecer(parecer);
-		System.out.println("Consulta encerrada");}catch(Exception e){
+		    String parecer = teclado.nextLine();
+		    a.setParecer(parecer);
+		    System.out.println("Consulta encerrada");}catch(Exception e){
                     System.out.println("Entrada incorreta, digite novamente: ");
                     System.out.println("Digite o parecer:");
-                 Scanner Digitar= new Scanner(System.in);
-		String parecer = teclado.nextLine();
-		a.setParecer(parecer);
-		System.out.println("Consulta encerrada");
+                    Scanner Digitar= new Scanner(System.in);
+		    String parecer = teclado.nextLine();
+		    a.setParecer(parecer);
+		    System.out.println("Consulta encerrada");
                 }
 	}
 	// aqui o paciente realiza a consulta e, caso na triagem não tenha sido coletada a temperatura ou outras informações, aqui é feita.
@@ -394,7 +394,7 @@ public static double verificaTemperatura(Atendimento a1) {
 		double temperatura = teclado.nextDouble();
 		a1.setTemperatura(temperatura);
 		return temperatura;}catch(Exception e){
-                    Scanner Digitar= new Scanner(System.in);
+                Scanner Digitar= new Scanner(System.in);
 		System.out.println("Informe a temperatura do paciente em graus: ");
 		double temperatura = teclado.nextDouble();
 		a1.setTemperatura(temperatura);
@@ -486,9 +486,9 @@ public static boolean simounao() {
                     tecladoNumero = new Scanner(System.in);
                     System.out.println("Resposta inválida, digite novamente: ");
                     System.out.println("Digite 1 para SIM ou 2 para NÃO");
-		int numero = 0;
-		numero = tecladoNumero.nextInt();
-		while (numero !=1 && numero!=2) {
+		    int numero = 0;
+		    numero = tecladoNumero.nextInt();
+		    while (numero !=1 && numero!=2) {
 			System.out.println("Digite uma opção válida (1 para SIM ou 2 para NÃO)");
 			numero = tecladoNumero.nextInt();
 		}
